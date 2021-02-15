@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Origin Frontend Challenge",
   "main": "src/index.ts",
+  "types": "./src/index.d.ts",
   "dependencies": {
     "acorn": "^7.1.1",
     "react": "^16.13.1",
