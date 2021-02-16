@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 const StyledFormField = styled.div`
+  position: relative;
   display: grid;
   gap: 4px;
+  grid-template-columns: minmax(0, 1fr);
   width: 100%;
 `;
 
@@ -11,6 +13,13 @@ const StyledLabel = styled.label`
   font-weight: 400;
   line-height: 18px;
   color: ${props => props.theme.colors.text};
+`;
+
+const StyledIcon = styled.img`
+  position: absolute;
+  bottom: 28px;
+  left: 13px;
+  transform: translateY(50%);
 `;
 
 const StyledInput = styled.input`
@@ -26,9 +35,13 @@ const StyledInput = styled.input`
   color: ${props => props.theme.colors.textMedium};
   appearance: none;
 
+  &[type='number'] {
+    padding-left: 44px;
+  }
+
   &[type='date']::-webkit-calendar-picker-indicator {
     display: none;
   }
 `;
 
-export { StyledFormField, StyledLabel, StyledInput };
+export { StyledFormField, StyledLabel, StyledIcon, StyledInput };

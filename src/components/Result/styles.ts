@@ -44,7 +44,7 @@ const StyledText = styled.p`
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
-  color: ${props => props.theme.colors.textLight};
+  color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.base};
   width: 100%;
   height: 100%;

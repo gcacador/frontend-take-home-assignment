@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // ASSETS
-import houseIcon from '../../icons/house-saving-goal.svg'
+import houseIcon from '../../icons/house-saving-goal.svg';
 
 // COMPONENTS
 import { Button } from '../../components/Button/Button';
@@ -15,6 +15,36 @@ import { Topbar } from '../../components/Topbar/Topbar';
 import { StyleReset } from '../../styles/reset';
 
 const App: React.FunctionComponent = () => {
+  const [totalAmount, setTotalAmount] = React.useState(0);
+  const [monthsUntilGoal, setMonthsUntilGoal] = React.useState(0);
+  const [monthlyAmount, setMonthlyAmount] = React.useState(0);
+
+  const calculateMonthlyValue = () => {
+    if (monthsUntilGoal === 0) return;
+
+    setMonthlyAmount(totalAmount / monthsUntilGoal);
+  };
+
+  const handleTotalAmountChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const { value } = e.currentTarget;
+
+    setTotalAmount(Number(value));
+    calculateMonthlyValue();
+  };
+
+  const handleDateChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const { value } = e.currentTarget;
+
+    const date = new Date(value);
+    const now = new Date();
+    let months = (date.getFullYear() - now.getFullYear()) * 12;
+    months -= date.getMonth();
+    months += now.getMonth();
+
+    setMonthsUntilGoal(months);
+    calculateMonthlyValue();
+  };
+
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) =>
     e.preventDefault();
 
@@ -36,8 +66,9 @@ const App: React.FunctionComponent = () => {
             <FormField
               id="totalAmount"
               label="Total Amount"
+              type="money"
+              onChange={handleTotalAmountChange}
               inputConfig={{
-                type: 'number',
                 placeholder: '0'
               }}
             />
@@ -45,8 +76,9 @@ const App: React.FunctionComponent = () => {
             <FormField
               id="reachGoalBy"
               label="Reach goal by"
+              type="date"
+              onChange={handleDateChange}
               inputConfig={{
-                type: 'date',
                 min: '15-02-2021',
                 max: '15-02-2050',
                 step: '30'
@@ -55,7 +87,7 @@ const App: React.FunctionComponent = () => {
 
             <Result
               label="Monthly amount"
-              value={521}
+              value={monthlyAmount}
               text={
                 <>
                   You{"'"}re planning <strong>48 monthly deposits</strong> to

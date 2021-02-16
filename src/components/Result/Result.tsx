@@ -11,7 +11,7 @@ const Result: React.FunctionComponent<Props> = ({ label, text, value }) => {
   return (
     <StyledResult theme={theme}>
       <StyledLabel theme={theme}>{label}</StyledLabel>
-      <StyledInput theme={theme} type="number" value={value} readOnly />
+      <StyledInput theme={theme} type="text" value={`$${value}`} readOnly />
 
       {text && <StyledText theme={theme}>{text}</StyledText>}
     </StyledResult>
