@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledCardHeader = styled.header`
   display: grid;
   gap: 16px;
-  grid-auto-flow: column;
+  grid-template-columns: auto 1fr;
   align-items: center;
   width: 100%;
 `;

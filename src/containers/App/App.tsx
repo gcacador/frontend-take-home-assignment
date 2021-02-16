@@ -56,7 +56,13 @@ const App: React.FunctionComponent = () => {
             <Result
               label="Monthly amount"
               value={521}
-              text="You're planning 48 monthly deposits to reach your $25,000 goal by October 2020."
+              text={
+                <>
+                  You{"'"}re planning <strong>48 monthly deposits</strong> to
+                  reach your <strong>$25,000</strong> goal by
+                  <strong> October 2020</strong>.
+                </>
+              }
             />
 
             <Button buttonConfig={{ type: 'submit' }}>Confirm</Button>

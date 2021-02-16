@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.main`
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
-  width: 100%;
   min-height: calc(100vh - ${props => props.theme.sizes.topbar});
   padding: 32px 0;
   background-color: ${props => props.theme.colors.base};

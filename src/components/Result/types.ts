@@ -1,5 +1,5 @@
 export interface ResultProps {
   label: string;
   value: number;
-  text?: string;
+  text?: string | JSX.Element;
 }
