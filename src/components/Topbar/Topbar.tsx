@@ -4,11 +4,12 @@ import * as React from 'react';
 import logo from '../../icons/logo.svg';
 
 // STYLES
+import { theme } from '../../styles/theme';
 import { StyledTopbar } from './styles';
 
 const Topbar: React.FunctionComponent = () => {
   return (
-    <StyledTopbar>
+    <StyledTopbar theme={theme}>
       <img src={logo} />
     </StyledTopbar>
   );
