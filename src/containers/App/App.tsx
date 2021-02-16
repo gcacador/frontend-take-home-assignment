@@ -1,5 +1,8 @@
 import * as React from 'react';
 
+// ASSETS
+import houseIcon from '../../icons/house-saving-goal.svg'
+
 // COMPONENTS
 import { Button } from '../../components/Button/Button';
 import { Card } from '../../components/Card/Card';
@@ -23,12 +26,11 @@ const App: React.FunctionComponent = () => {
 
       <Container>
         <Card
-          header={
-            <div>
-              <h2>Buy a house</h2>
-              <h3>Saving goal</h3>
-            </div>
-          }
+          header={{
+            icon: houseIcon,
+            title: 'Buy a house',
+            subtitle: 'Saving goal'
+          }}
         >
           <Form onSubmit={handleFormSubmit}>
             <FormField
