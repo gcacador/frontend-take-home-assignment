@@ -8,12 +8,17 @@ import { Form, FormField } from '../../components/Form';
 import { Result } from '../../components/Result/Result';
 import { Topbar } from '../../components/Topbar/Topbar';
 
+// STYLES
+import { StyleReset } from '../../styles/reset';
+
 const App: React.FunctionComponent = () => {
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) =>
     e.preventDefault();
 
   return (
     <>
+      <StyleReset />
+
       <Topbar />
 
       <Container>

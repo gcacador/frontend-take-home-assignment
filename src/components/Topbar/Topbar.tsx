@@ -3,11 +3,14 @@ import * as React from 'react';
 // ASSETS
 import logo from '../../icons/logo.svg';
 
+// STYLES
+import { StyledTopbar } from './styles';
+
 const Topbar: React.FunctionComponent = () => {
   return (
-    <header>
+    <StyledTopbar>
       <img src={logo} />
-    </header>
+    </StyledTopbar>
   );
 };
 
