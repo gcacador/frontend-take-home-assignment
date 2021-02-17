@@ -3,6 +3,9 @@ import * as React from 'react';
 // ASSETS
 import houseIcon from '../../icons/house-saving-goal.svg';
 
+// HOOKS
+import { useGoalPlanner } from '../../hooks/useGoalPlanner';
+
 // COMPONENTS
 import { Button } from '../../components/Button/Button';
 import { Card } from '../../components/Card/Card';
@@ -15,35 +18,15 @@ import { Topbar } from '../../components/Topbar/Topbar';
 import { StyleReset } from '../../styles/reset';
 
 const App: React.FunctionComponent = () => {
-  const [totalAmount, setTotalAmount] = React.useState(0);
-  const [monthsUntilGoal, setMonthsUntilGoal] = React.useState(0);
-  const [monthlyAmount, setMonthlyAmount] = React.useState(0);
-
-  const calculateMonthlyValue = () => {
-    if (monthsUntilGoal === 0) return;
-
-    setMonthlyAmount(totalAmount / monthsUntilGoal);
-  };
-
-  const handleTotalAmountChange = (e: React.FormEvent<HTMLInputElement>) => {
-    const { value } = e.currentTarget;
-
-    setTotalAmount(Number(value));
-    calculateMonthlyValue();
-  };
-
-  const handleDateChange = (e: React.FormEvent<HTMLInputElement>) => {
-    const { value } = e.currentTarget;
-
-    const date = new Date(value);
-    const now = new Date();
-    let months = (date.getFullYear() - now.getFullYear()) * 12;
-    months -= date.getMonth();
-    months += now.getMonth();
-
-    setMonthsUntilGoal(months);
-    calculateMonthlyValue();
-  };
+  const {
+    goalMonth,
+    goalYear,
+    handleDateChange,
+    handleTotalAmountChange,
+    monthlyAmount,
+    monthsUntilGoal,
+    totalAmount
+  } = useGoalPlanner();
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) =>
     e.preventDefault();
@@ -69,7 +52,7 @@ const App: React.FunctionComponent = () => {
               type="money"
               onChange={handleTotalAmountChange}
               inputConfig={{
-                placeholder: '0'
+                value: totalAmount.toString()
               }}
             />
 
@@ -79,8 +62,8 @@ const App: React.FunctionComponent = () => {
               type="date"
               onChange={handleDateChange}
               inputConfig={{
-                min: '15-02-2021',
-                max: '15-02-2050',
+                min: '02-15-2021',
+                max: '02-15-2050',
                 step: '30'
               }}
             />
@@ -90,9 +73,12 @@ const App: React.FunctionComponent = () => {
               value={monthlyAmount}
               text={
                 <>
-                  You{"'"}re planning <strong>48 monthly deposits</strong> to
-                  reach your <strong>$25,000</strong> goal by
-                  <strong> October 2020</strong>.
+                  You{"'"}re planning
+                  <strong> {monthsUntilGoal} monthly deposits </strong>
+                  to reach your <strong>${totalAmount}</strong> goal by{' '}
+                  <strong>
+                    {goalMonth} {goalYear}.
+                  </strong>
                 </>
               }
             />
