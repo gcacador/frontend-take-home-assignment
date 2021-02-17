@@ -6,6 +6,10 @@ const StyledCardHeader = styled.header`
   grid-template-columns: auto 1fr;
   align-items: center;
   width: 100%;
+
+  @media (min-width: 900px) {
+    gap: 24px;
+  }
 `;
 
 const StyledTitle = styled.h2`
@@ -15,6 +19,11 @@ const StyledTitle = styled.h2`
   color: ${props => props.theme.colors.text};
   margin: 0;
   margin-bottom: 4px;
+
+  @media (min-width: 900px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
 `;
 
 const StyledSubTitle = styled.h3`
@@ -23,6 +32,11 @@ const StyledSubTitle = styled.h3`
   line-height: 21px;
   color: ${props => props.theme.colors.textLight};
   margin: 0;
+
+  @media (min-width: 900px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 export { StyledCardHeader, StyledTitle, StyledSubTitle };

@@ -20,12 +20,13 @@ const FormField: React.FunctionComponent<Props> = ({
   label,
   type,
   onChange,
+  elRef,
   inputConfig
 }) => {
   const inputType = type === 'money' ? 'number' : type;
 
   return (
-    <StyledFormField>
+    <StyledFormField ref={elRef}>
       <StyledLabel theme={theme} htmlFor={id}>
         {label}
       </StyledLabel>

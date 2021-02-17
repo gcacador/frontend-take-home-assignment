@@ -31,13 +31,24 @@ const App: React.FunctionComponent = () => {
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) =>
     e.preventDefault();
 
+  const totalAmountRef = React.useRef<HTMLDivElement | null>(null);
+  const reachGoalByRef = React.useRef<HTMLDivElement | null>(null);
+  const resultRef = React.useRef<HTMLDivElement | null>(null);
+  const buttonRef = React.useRef<HTMLButtonElement | null>(null);
+
   return (
     <>
       <StyleReset />
 
       <Topbar />
 
-      <Container>
+      <Container
+        title={
+          <>
+            Let{"'"}s plan your <strong>saving goal.</strong>
+          </>
+        }
+      >
         <Card
           header={{
             icon: houseIcon,
@@ -45,12 +56,16 @@ const App: React.FunctionComponent = () => {
             subtitle: 'Saving goal'
           }}
         >
-          <Form onSubmit={handleFormSubmit}>
+          <Form
+            onSubmit={handleFormSubmit}
+            elements={[totalAmountRef, reachGoalByRef, resultRef, buttonRef]}
+          >
             <FormField
               id="totalAmount"
               label="Total Amount"
               type="money"
               onChange={handleTotalAmountChange}
+              elRef={totalAmountRef}
               inputConfig={{
                 value: totalAmount.toString()
               }}
@@ -61,6 +76,7 @@ const App: React.FunctionComponent = () => {
               label="Reach goal by"
               type="date"
               onChange={handleDateChange}
+              elRef={reachGoalByRef}
               inputConfig={{
                 min: '02-15-2021',
                 max: '02-15-2050',
@@ -71,6 +87,7 @@ const App: React.FunctionComponent = () => {
             <Result
               label="Monthly amount"
               value={monthlyAmount}
+              elRef={resultRef}
               text={
                 <>
                   You{"'"}re planning
@@ -83,7 +100,9 @@ const App: React.FunctionComponent = () => {
               }
             />
 
-            <Button buttonConfig={{ type: 'submit' }}>Confirm</Button>
+            <Button buttonConfig={{ type: 'submit' }} elRef={buttonRef}>
+              Confirm
+            </Button>
           </Form>
         </Card>
       </Container>

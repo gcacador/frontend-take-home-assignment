@@ -11,7 +11,8 @@ const theme = {
     border: '#e9eef2'
   },
   sizes: {
-    topbar: '56px'
+    topbar: '56px',
+    topbarDesktop: '80px'
   }
 };
 

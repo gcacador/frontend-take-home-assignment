@@ -1,17 +1,16 @@
 import * as React from 'react';
 
+// TYPES
+import { ContainerProps as Props } from './types';
+
 // STYLES
 import { theme } from '../../styles/theme';
 import { StyledContainer, StyledTitle } from './styles';
 
-const Container: React.FunctionComponent<React.PropsWithChildren<{}>> = ({
-  children
-}) => {
+const Container: React.FunctionComponent<Props> = ({ children, title }) => {
   return (
     <StyledContainer theme={theme}>
-      <StyledTitle theme={theme}>
-        Let{"'"}s plan your <strong>saving goal.</strong>
-      </StyledTitle>
+      {title && <StyledTitle theme={theme}>{title}</StyledTitle>}
 
       {children}
     </StyledContainer>

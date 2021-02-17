@@ -16,6 +16,12 @@ const StyledLabel = styled.label`
   font-weight: 400;
   line-height: 22px;
   color: ${props => props.theme.colors.text};
+
+  @media (min-width: 900px) {
+    padding: 32px 0 32px 32px;
+    font-size: 20px;
+    line-height: 24px;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -32,6 +38,12 @@ const StyledInput = styled.input`
   &:focus,
   &:active {
     outline: none;
+  }
+
+  @media (min-width: 900px) {
+    padding: 32px;
+    font-size: 32px;
+    line-height: 38px;
   }
 `;
 
@@ -51,6 +63,10 @@ const StyledText = styled.p`
 
   > strong {
     font-weight: 600;
+  }
+
+  @media (min-width: 900px) {
+    padding: 24px 32px;
   }
 `;
 

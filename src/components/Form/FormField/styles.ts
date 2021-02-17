@@ -13,6 +13,11 @@ const StyledLabel = styled.label`
   font-weight: 400;
   line-height: 18px;
   color: ${props => props.theme.colors.text};
+
+  @media (min-width: 900px) {
+    font-size: 14px;
+    line-height: 22px;
+  }
 `;
 
 const StyledIcon = styled.img`
@@ -41,6 +46,11 @@ const StyledInput = styled.input`
 
   &[type='date']::-webkit-calendar-picker-indicator {
     display: none;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 24px;
+    line-height: 28px;
   }
 `;
 

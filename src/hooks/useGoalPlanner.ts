@@ -31,18 +31,17 @@ const useGoalPlanner = (): {
   const [goalMonth, setGoalMonth] = React.useState(monthNames[now.getMonth()]);
   const [monthlyAmount, setMonthlyAmount] = React.useState(0);
 
-  React.useEffect(() => {
-    if (monthsUntilGoal <= 0) return;
+  const calculateMonthlyValue = React.useCallback(() => {
+    if (monthsUntilGoal <= 0 || totalAmount <= 0) return;
 
     const monthlyDeposit = totalAmount / monthsUntilGoal;
-    console.log({
-      monthlyDeposit,
-      totalAmount,
-      monthsUntilGoal
-    });
 
     setMonthlyAmount(Math.ceil(monthlyDeposit));
   }, [totalAmount, monthsUntilGoal]);
+
+  React.useEffect(() => {
+    calculateMonthlyValue();
+  }, [calculateMonthlyValue]);
 
   const handleTotalAmountChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
