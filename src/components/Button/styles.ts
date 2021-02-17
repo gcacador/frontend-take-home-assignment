@@ -6,7 +6,7 @@ const StyledButton = styled.button`
   width: 100%;
   padding: 18px;
   text-align: center;
-  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 600;
   line-height: 20px;
   color: ${props => props.theme.colors.white};

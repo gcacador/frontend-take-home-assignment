@@ -13,6 +13,7 @@ const StyledCardHeader = styled.header`
 `;
 
 const StyledTitle = styled.h2`
+  font-family: 'Rubik', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
@@ -27,6 +28,7 @@ const StyledTitle = styled.h2`
 `;
 
 const StyledSubTitle = styled.h3`
+  font-family: 'Work Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;

@@ -4,6 +4,7 @@ const StyledResult = styled.div`
   display: grid;
   grid-template-areas: 'label input' 'text text';
   grid-template-columns: minmax(min-content, max-content) minmax(0, 1fr);
+  align-items: center;
   border: 1px solid ${props => props.theme.colors.border};
   border-radius: 4px;
   width: 100%;
@@ -12,6 +13,7 @@ const StyledResult = styled.div`
 const StyledLabel = styled.label`
   padding: 24px 0 24px 24px;
   grid-area: label;
+  font-family: 'Work Sans', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
@@ -30,6 +32,7 @@ const StyledInput = styled.input`
   margin: 0;
   border: none;
   text-align: right;
+  font-family: 'Rubik', sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 28px;
@@ -53,6 +56,7 @@ const StyledText = styled.p`
   padding: 24px;
   margin: 0;
   text-align: center;
+  font-family: 'Work Sans', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;

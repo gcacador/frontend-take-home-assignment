@@ -12,6 +12,7 @@ const StyledForm = styled.form`
   @media (min-width: 900px) {
     display: grid;
     grid-template-areas: 'element-0 element-1' 'element-2 element-2' 'element-3 element-3';
+    grid-template-columns: 272px auto;
   }
 `;
 

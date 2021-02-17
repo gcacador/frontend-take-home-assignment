@@ -9,6 +9,7 @@ const StyledFormField = styled.div`
 `;
 
 const StyledLabel = styled.label`
+  font-family: 'Work Sans', sans-serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -34,6 +35,7 @@ const StyledInput = styled.input`
   border-radius: 4px;
   height: 56px;
   padding: 0 12px;
+  font-family: 'Rubik', sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
@@ -42,6 +44,11 @@ const StyledInput = styled.input`
 
   &[type='number'] {
     padding-left: 44px;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
   }
 
   &[type='date']::-webkit-calendar-picker-indicator {

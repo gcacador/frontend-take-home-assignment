@@ -17,6 +17,7 @@ const StyledContainer = styled.main`
 
 const StyledTitle = styled.h1`
   text-align: center;
+  font-family: 'Work Sans', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
